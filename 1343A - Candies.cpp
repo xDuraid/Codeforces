@@ -1,29 +1,22 @@
 #include <iostream>
-
 using namespace std;
-#define IOS ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+#define IOS ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define TEST int t = 0; cin >> t; while(t--)
-
-
+#define ll long long
 int main()
 {
     IOS
     TEST{
-        int n = 0;
-    cin >> n;
-    int a[30] = {0};
-    a[0] = 1;
-    for(int i = 1; i < 30; i++){
-        a[i] += (2 * a[i-1]) + 1;
-    }
-    for(int i = 29; i >= 0; i--){
-        if(n % a[i] == 0){
-            cout << n / a[i] << endl;
-            break;
+        int n = 0, ans = 0;
+        cin >> n;
+        for(int i = 4; i - 1 <= n; i = i << 1){
+            if(n % (i - 1) == 0){
+                ans = n / (i - 1);
+                break;
+            }
         }
+        cout << ans << endl;
     }
-    }
-
-
     return 0;
 }
