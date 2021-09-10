@@ -1,29 +1,24 @@
 #include <iostream>
-
 using namespace std;
-#define IOS ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-#define TEST int t = 0; cin >> t; while(t--)
 
+#define IOS ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define TEST int t = 0; cin >> t; while(t--)
 
 int main()
 {
     IOS
-    int n = 0;
+    int n = 0, a = 0, b = 0, t = 1, mx = 1;
     cin >> n;
-    int a[n] = {0};
-    int t = 1, r = 0;
-    cin >> a[0];
+    cin >> a;
     for(int i = 1; i < n; i++){
-        cin >> a[i];
-        if(a[i] >= a[i - 1])
-            t++;
-        else{
-            r = max(r, t);
-            t = 1;
+        cin >> b;
+        t++;
+        if(a > b){
+            t = 1 ;
         }
+        mx = max(t, mx);
+        a = b;
     }
-    r = max(r ,t);
-    cout << r;
-
+    cout << mx;
     return 0;
 }
