@@ -14,8 +14,7 @@ void solve()
 {
     int s1 = 0, s2 = 0, s3 = 0, s4 = 0;
     cin >> s1 >> s2 >> s3 >> s4;
-    int x = max(s1, s2), y = max(s3, s4);
-    if((x < s3 && x < s4) || (y < s1 && y < s2))
+    if((max(s1, s2) < min(s3, s4)) || (max(s3, s4) < min(s1, s2)))
         cout << "NO\n";
     else
         cout << "YES\n";
