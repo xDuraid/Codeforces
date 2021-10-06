@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+#define IOS ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define TEST int tst = 0; cin >> tst; while(tst--)
+#define ll long long
+#define ln length()
+#define sz size()
+#define pb push_back
+#define fi first
+#define se second
+#define IGNORE cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+bool is_prime(int n)
+{
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0)
+            return 0;
+    }
+    return 1;
+}
+void solve()
+{
+    int n = 0;
+    string s, p = "14689";
+    cin >> n;
+    cin >> s;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < 5; j++){
+            if(s[i] == p[j]){
+                cout << 1 << "\n" << p[j] << "\n";
+                return;
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < n; j++){
+            int t = (s[i] - '0') * 10 + (s[j] - '0');
+            if(!is_prime(t)){
+                cout << 2 << "\n" << s[i] << s[j] << "\n";
+                return;
+            }
+        }
+    }
+    return;
+}
+
+int main()
+{
+    IOS
+
+    TEST
+    {
+        solve();
+    }
+    return 0;
+}
+
+
